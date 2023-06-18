@@ -10,6 +10,10 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-helvetica-nueu)'],
       },
+      screens: {
+        '2xl': "1440px",
+        '3xl': "1536px"
+      }
     },
   },
   plugins: [],

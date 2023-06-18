@@ -1,4 +1,4 @@
-import './globals.css';
+import './globals.scss';
 import localFont from 'next/font/local';
 
 const helveticaNueu = localFont({
@@ -34,7 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${helveticaNueu.variable} font-sans`}>{children}</body>
+      <body className={`${helveticaNueu.variable} font-sans h-full`}>{children}</body>
     </html>
   )
 }
