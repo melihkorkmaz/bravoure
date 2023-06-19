@@ -1,27 +1,35 @@
+"use client";
+import { useContext } from "react";
 import { Star } from "@/app/components/icons/Star";
+import { GlobalContext } from "@/app/providers/GlobalProvider";
+import { formatDateString } from "@/app/lib/dateTimeUtils";
 
 export const EpisodeDetails = () => {
+  const { currentEpisode: episode } = useContext(GlobalContext);
+
+  if (!episode) {
+    return null;
+  }
+
   return (
     <>
-      <div className="pl-[38px] pr-[45px] text-black font-light flex justify-between items-center h-[113px] border-b border-[rgba(151,151,151,0.2)] border-solid">
-        <div>Episode 1 — 2011-04-17</div>
+      <div className="pl-[38px] pr-[45px] text-black font-light flex justify-between items-center xl:h-[113px] h-[60px] border-b border-[rgba(151,151,151,0.2)] border-solid">
+        <div className="text-lg">
+          Episode {episode.Episode} — {formatDateString(episode.Released)}
+        </div>
         <div className="flex items-center gap-[17px]">
-          <div style={{ fill: "#EFD358" }}>
-            <Star />
-          </div>
-          <div className="text-[18px]" style={{ lineHeight: "21px" }}>
-            <span className="font-bold">9</span>/10
+          <Star />
+          <div className="text-lg" style={{ lineHeight: "21px" }}>
+            <span className="font-bold">
+              {parseInt(episode.imdbRating).toFixed(0)}
+            </span>
+            /10
           </div>
         </div>
       </div>
-      <div className="text-black pl-[38px] pr-[95px] pt-[45px]">
-        <h2 className="text-[27px] font-bold" style={{ lineHeight: "32px" }}>
-          Insecure as Fuck
-        </h2>
-        <p className="font-light">
-          In the wake of her 29th birthday, Issa reflects on her life and
-          relationship choices.
-        </p>
+      <div className="text-black xl:pl-[38px] xl:pr-[95px] xl:pt-[44px] py-[18px] px-[40px]">
+        <h2 className="text-3xl font-bold">{episode.Title}</h2>
+        <p className="font-light text-xl">{episode.Plot}</p>
       </div>
     </>
   );

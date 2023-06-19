@@ -1,5 +1,6 @@
 import './globals.scss';
 import localFont from 'next/font/local';
+import { GlobalProvider } from "@/app/providers/GlobalProvider"; 
 
 const helveticaNueu = localFont({
   variable: '--font-helvetica-nueu',
@@ -33,8 +34,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${helveticaNueu.variable} font-sans h-full`}>{children}</body>
+    <html lang="en" className="3xl:text-[18px] xl:text-[15px] text-[13px]">
+      <body className={`${helveticaNueu.variable} font-sans h-full`}>
+      <GlobalProvider>
+        {children}
+      </GlobalProvider>
+      </body>
     </html>
   )
 }

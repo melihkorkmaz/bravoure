@@ -4,33 +4,25 @@
 
 html {
   height: 100%;
+  font-size: 15px;
 }
 
-.layout {
-  @apply w-full xl:flex min-h-full;
+.background-image {
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: 200vw;
+}
 
-  .main {
-    background-color: rgba(0, 0, 0, .5);
-    @apply xl:w-[65%] w-full bg-center bg-cover bg-no-repeat bg-blend-darken flex flex-col;
+.three-line-ellipsis {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 
-    .hero-section {
-     @apply 2xl:min-h-[533px] 3xl:h-[70%] 2xl:h-[60%] relative pl-[90px];
-    }
-
-    .episodes-section {
-      @apply flex-1 xl:pl-[80px] xl:pr-0 px-[40px];
-    }
-  }
-
-  .side {
-    @apply flex-1 flex flex-col;
-
-    .episode-image-container {
-      @apply 2xl:min-h-[533px] 3xl:h-[70%] 2xl:h-[60%] bg-cover bg-center bg-no-repeat relative;
-    }
-
-    .episode-details-container {
-      @apply flex-1; 
-    }
+.hide-scroll {
+  &::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
   }
 }
