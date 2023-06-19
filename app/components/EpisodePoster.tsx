@@ -11,14 +11,15 @@ export const EpisodePoster = () => {
     return null;
   }
 
-  console.log(episode);
-
   return (
     <Image
+      placeholder="blur"
+      blurDataURL={episode.Poster}
       src={resizePoster(episode.Poster)!}
       alt=""
       fill
       style={{ objectFit: "cover" }}
+      priority={false}
     />
   );
 };

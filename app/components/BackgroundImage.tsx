@@ -1,4 +1,3 @@
-"use client";
 import { resizePoster } from "@/app/lib/resizePoster";
 
 interface BackgroundImageProps {
@@ -16,7 +15,7 @@ export const BackgroundImage = ({
   return (
     <div
       className={className}
-      style={{ backgroundImage: `url('${resizePoster(url, (window as any).innerWidth)}')` }}
+      style={{ backgroundImage: `url('${resizePoster(url, 1080)}` }}
     >
       {children}
     </div>
